@@ -9,6 +9,16 @@ def get_file(url):
     return file
 
 
+def date_convert(d):
+    # takes in date with day-first style: '17/12/2021'
+    # changes it to month-first style: '12/17/2021'
+
+    day = d[:d.find("/")]
+    month = d[d.find("/")+1:d.rfind("/")]
+    year = d[d.rfind("/")+1:]
+    return month + "/" + day + "/" + year
+
+
 def file_to_json(f):
     # returns convertedDict js is a dictionary of the api call
     # js keys are ['id', 'name', 'country', 'continent', 'forecast']
@@ -27,6 +37,7 @@ def file_to_json(f):
 def parse_dict(js):
     # returns list of:
     # mountain, info about today, info about tomorrow, snow_rep link
+
     ans = [None] * 4
     ans[0] = js["name"]
     ans[1] = {}
@@ -38,7 +49,7 @@ def parse_dict(js):
     total_snow1 = 0
     for x in range(8):
         dct = js["forecast"][x]
-        day1 = dct["date"]
+        day1 = date_convert(dct["date"])
         total_snow1 += dct["snow_in"]
         if x == 2:
             morn_weath1 = dct["mid"]["wx_desc"]
@@ -56,7 +67,7 @@ def parse_dict(js):
     total_snow2 = 0
     for x in range(8, 16):
         dct = js["forecast"][x]
-        day2 = dct["date"]
+        day2 = date_convert(dct["date"])
         total_snow2 += dct["snow_in"]
         if x == 10:
             morn_weath2 = dct["mid"]["wx_desc"]
@@ -75,6 +86,7 @@ def parse_dict(js):
 class SkiAlertMe:
     def __init__(self):
         # initializing object and API calls for Stratton Mountain
+        
         self.app_id = 87516043
         self.key = "82c84db08480af06fbe40d3a85190a0a"
         self.accept_header = "application/json"
