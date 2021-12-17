@@ -14,8 +14,7 @@ def file_to_json(f):
     # js keys are ['id', 'name', 'country', 'continent', 'forecast']
     # js["name"] --> "Stratton Mountain"
     # js["forecast"][_] is a dictionary representing a 3 hour period
-    #                   with important keys...
-    #                   date, rain_in, snow_in.
+    #                   with important keys: date, snow_in.
     #                   key "mid" --> subkey "wx_desc" for weather descr.
     # js["forecast"][0] through js["forecast"][7] == day 1 (curr day)
     # js["forecast"][8] through js["forecast"][15] == day 1 (next day)
@@ -37,9 +36,6 @@ def parse_dict(js):
     # json info for current day
     day1 = ""
     total_snow1 = 0
-    morn_weath1 = ""
-    mid_weath1 = ""
-    night_weath1 = ""
     for x in range(8):
         dct = js["forecast"][x]
         day1 = dct["date"]
@@ -58,9 +54,6 @@ def parse_dict(js):
     # json info for next day
     day2 = ""
     total_snow2 = 0
-    morn_weath2 = ""
-    mid_weath2 = ""
-    night_weath2 = ""
     for x in range(8, 16):
         dct = js["forecast"][x]
         day2 = dct["date"]
