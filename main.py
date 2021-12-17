@@ -17,14 +17,15 @@ class SkiAlertMe:
         return url
 
     def read_file(self, url):
-        with urllib.request.urlopen(url) as f:
-            print(f)
+        f = urllib.request.urlopen(url)
+
+        return url
 
 
 def run():
     alert = SkiAlertMe()
     url = alert.url_maker()
-    alert.readFile(url)
+    alert.read_file(url)
 
 
 if __name__ == "__main__":
