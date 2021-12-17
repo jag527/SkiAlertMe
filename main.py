@@ -9,7 +9,7 @@ class SkiAlertMe:
         self.resort_id = 802019  # Stratton
 
     def url_maker(self):
-        base = "api.weatherunlocked.com/api/resortforecast/"
+        base = "http://api.weatherunlocked.com/api/resortforecast/"
         resort_id = str(self.resort_id)
         app_id = str(self.app_id)
         key = str(self.key)
@@ -18,6 +18,7 @@ class SkiAlertMe:
 
     def read_file(self, url):
         f = urllib.request.urlopen(url)
+        print(f.read())
 
         return url
 
