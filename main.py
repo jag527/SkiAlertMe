@@ -55,7 +55,7 @@ def parse_dict(js):
             mid_weath1 = dct["mid"]["wx_desc"]
         if x == 6:
             night_weath1 = dct["mid"]["wx_desc"]
-    ans[1] = {"Day": day1, "Total Snowfall": total_snow1,
+    ans[1] = {"Day": day1, "Total Snowfall": round(total_snow1, 2),
               "Morning Weather": morn_weath1,
               "Midday Weather": mid_weath1,
               "Night Weather": night_weath1}
@@ -73,7 +73,7 @@ def parse_dict(js):
             mid_weath2 = dct["mid"]["wx_desc"]
         if x == 14:
             night_weath2 = dct["mid"]["wx_desc"]
-    ans[2] = {"Day": day2, "Total Snowfall": total_snow2,
+    ans[2] = {"Day": day2, "Total Snowfall": round(total_snow2, 2),
               "Morning Weather": morn_weath2,
               "Midday Weather": mid_weath2,
               "Night Weather": night_weath2}
@@ -108,7 +108,7 @@ def run():
     file = get_file(url)
     js = file_to_json(file)
     parsed_lst = parse_dict(js)
-    print(parsed_lst)
+    return parsed_lst
 
 
 if __name__ == "__main__":
