@@ -3,7 +3,7 @@ import main
 
 
 email_list = ["XXXXX@gmail.com",
-              "XXXXX@gmail.com"]
+              "XXXXX@gmail.com"] # use actual email list
 
 
 def d_to_message(d):
@@ -32,7 +32,7 @@ def send_email(d, lst):
 
     server = smtplib.SMTP_SSL("smtp.gmail.com")
     server.login("XXXXX@gmail.com",
-                 "xxxxx")
+                 "xxxxx") # login with actual credentials
     message = d_to_message(d)
 
     for address in lst:
