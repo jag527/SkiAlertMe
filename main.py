@@ -85,8 +85,8 @@ class SkiAlertMe:
     def __init__(self):
         # initializing object and API calls for Stratton Mountain
 
-        self.app_id = 87516043
-        self.key = "82c84db08480af06fbe40d3a85190a0a"
+        self.app_id = 0000000000 # use my actual app_id
+        self.key = "XXXXXXXXXXXXXXX" # use my actual API key
         self.accept_header = "application/json"
         self.resort_id = 802019
 
