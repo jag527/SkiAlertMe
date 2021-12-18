@@ -40,8 +40,6 @@ def parse_dict(js):
 
     ans = [None] * 4
     ans[0] = js["name"]
-    ans[1] = {}
-    ans[2] = {}
     ans[3] = "https://www.stratton.com/the-mountain/mountain-report#/"
 
     # json info for current day
@@ -86,7 +84,7 @@ def parse_dict(js):
 class SkiAlertMe:
     def __init__(self):
         # initializing object and API calls for Stratton Mountain
-        
+
         self.app_id = 87516043
         self.key = "82c84db08480af06fbe40d3a85190a0a"
         self.accept_header = "application/json"
